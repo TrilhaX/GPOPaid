@@ -1,0 +1,53 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Tempest Hub | Beta Script", HidePremium = false, SaveConfig = true, IntroText = 'Tempest Hub',  ConfigFolder = "Orion"})
+
+local Tab = Window:MakeTab({
+    Name = "Key",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+    Name = "Key"
+})
+Tab:AddTextbox({
+    Name = "Put Key",
+    Default = nil,
+    TextDisappear = true,
+    Callback = function(Value)
+        _G.key = Value
+        CheckKey()
+    end
+})
+
+function CheckKey()
+    _G.Key = _G.key
+
+    local keys = {
+        "by0^Pp$FoiV5<BQ",
+    }
+
+    local keyCheck = false
+    for _, v in ipairs(keys) do
+        if v == _G.Key then
+            keyCheck = true
+            break
+        end
+    end
+
+    if keyCheck then
+        print("Successfully whitelisted!")
+        MakeScriptHub()
+        OrionLib:Destroy()
+    else
+        warn('Key Not Valid')
+    end
+end
+
+function MakeScriptHub()
+    if game.PlaceId == 1730877806 then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/TrilhaX/gposea1/main/gposea1main"))()
+        print("Sucess")
+end
+end
+OrionLib:Init()
